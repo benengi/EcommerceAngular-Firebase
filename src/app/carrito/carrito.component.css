@@ -1,0 +1,16 @@
+
+tr, th{
+    text-align:center;
+}
+
+td{
+    width: 25%;
+    text-align:center;
+}
+
+.facturaiva{
+    font-size:25px;
+}
+/* .id {
+    width: 50px;
+} */

@@ -1,0 +1,20 @@
+<div class="container" style="text-align: center;">
+    <h1>El Barrio de Huertas</h1>
+        <div *ngFor="let rutas of rutaObservable | async" style="display: inline-flex;">
+          <div *ngIf="rutas.categoria=='Huertas'">
+          <ngb-alert type="info" [dismissible]="false">
+              <h3>{{ rutas.nombre }}</h3>
+              <img src="{{ rutas.foto }}" style="width: 300px; height: 200px;" alt="imagen-rutas"><hr>
+              
+                <input hidden value="{{rutas._id}}" #id>
+                <input hidden value="{{rutas.nombre}}" #titulo>
+                <input hidden value="{{rutas.precio}}" #precio>
+                <input hidden value="{{rutas.foto}}" #foto>
+                <input hidden value="{{rutas.descripcion}}" #desc>
+
+                <input class="btn btn-success btn-lg btn-block" type="button" value="Más detalles" (click)="detalles(id,titulo,foto,precio, desc)">
+              
+            </ngb-alert>
+            </div>
+        </div>
+  </div>

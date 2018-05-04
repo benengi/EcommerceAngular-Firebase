@@ -1,0 +1,66 @@
+<div class="container-fluid">
+        
+      <div class="row">
+            <div class="col-sm-12">
+                    <table class="table" >
+                            <thead>
+                                <th>Producto</th>
+                                <th>Ruta</th>
+                                <th>Cantidad</th>
+                                <th>Precio unitario</th>
+                                <th>Eliminar</th>
+                    
+                            </thead>
+                            
+                            <tbody>
+                              <!-- ngFor es un bucle para recorrer json-->
+                              
+                              <tr *ngFor="let rutas of carrito">
+                                <input hidden type="string" value={{rutas.id}} #id>
+                                <td><img width="50%" src="{{ rutas.foto }}"></td>
+                                <td>{{ rutas.titulo }}</td>
+                                <td>{{ rutas.cantidad }}</td>
+                                <td>{{ rutas.precio }}</td>
+                                <td><input type="button" class="btn btn-danger " value="Eliminar viaje" (click)="borrarviaje(rutas.id)"></td>
+                                
+                              </tr>
+                            </tbody>
+                          </table>
+
+            </div>
+            
+          </div>
+
+        </div>
+
+        <div class="row">
+                <div class="col-sm-7">
+                        <td></td>
+                        <td class="factura" style="text-align:right"><input routerLink="/login" class=" btn btn-primary" type="submit" value="Tramitar Pedido"></td>
+                        <td style="text-align:right"><input class=" btn btn-danger" type="submit" value="Vaciar carrito" (click)="vaciarcarrito()"></td>
+                        
+                </div>
+                <div class="col-sm-5" >
+                        
+                    <tr class="iva" >
+                        
+                            <td  class="factura" style="text-align:right">Total sin IVA</td>
+                            <td  class="factura" >{{total}} €</td>
+                            
+                    </tr>
+                    <tr class="iva">
+                           
+
+                            <td  class="facturaiva" style="text-align:right">Total con iva Factura</td>
+                            <td  class="facturaiva">{{totaliva}} €</td>
+                    </tr>
+                    <tr class="iva" >
+                           
+                            
+                    </tr>
+
+                </div>
+              </div>   
+              
+ 
+
